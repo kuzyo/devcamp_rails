@@ -8,7 +8,9 @@
 <% @portfolios.each do |portfolio| %>
   <div>
     <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %>
-    <div><%= portfolio.title %></div>
+    <div>
+      <%= link_to portfolio.title, portfolio_path(portfolio) %>
+    </div>
     <div><%= portfolio.subtitle %></div>
     <div><%= portfolio.body %></div>
     <%= link_to "Edit", edit_portfolio_path(portfolio.id) %>

@@ -1,3 +1,11 @@
-<h1>Porfoliio Details</h1>
+<h1>Portfolio Details</h1>
 
-<%= @portfolio.inspect %>
+<div>
+  <%= image_tag @portfolio.thumb_image unless @portfolio.thumb_image.nil? %>
+  <div>
+    <%= link_to @portfolio.title, portfolio_path(@portfolio) %>
+  </div>
+  <div><%= @portfolio.subtitle %></div>
+  <div><%= @portfolio.body %></div>
+  <%= link_to "Edit", edit_portfolio_path(@portfolio.id) %>
+</div>
