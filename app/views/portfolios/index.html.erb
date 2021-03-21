@@ -14,6 +14,7 @@
     <div><%= portfolio.subtitle %></div>
     <div><%= portfolio.body %></div>
     <%= link_to "Edit", edit_portfolio_path(portfolio.id) %>
+    <%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
   <br/>
 <% end %>
