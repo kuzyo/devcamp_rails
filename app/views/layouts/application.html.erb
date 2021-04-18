@@ -22,5 +22,11 @@
       <% end %>
     </div>
     <%= yield %>
+
+    <% if session[:source] %>
+    <div>
+      Thanks for vising me from <%= session[:source] %>
+    </div>
+    <% end %>
   </body>
 </html>
