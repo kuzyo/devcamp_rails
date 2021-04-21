@@ -1,12 +1,11 @@
 module DeviseWhitelist
   extend ActiveSupport::Concern
 
-  included do
-    before_action :configure_permitted_params, if: :devise_controller?
+  def current_user
+    super || guest_user
   end
 
-  def configure_permitted_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  def guest_user
+    OpenStruct.new(name: "Guest User", first_name: "Guest", last_name: "User", email: "guset@email.com")
   end
 end
